@@ -2,8 +2,8 @@
 
 /* ==== CONTATOS: preencha aqui (aparecem no site inteiro). Deixe "" para esconder. ==== */
 const CONTATO = {
-  whatsapp: "",          // so numeros, com DDI e DDD. Ex.: "5519999999999"
-  email: "",             // ex.: "contato@aplicadigital.app.br"
+  whatsapp: "5519983126696",          // so numeros, com DDI e DDD. Ex.: "5519999999999"
+  email: "a.demar1969@hotmail.com",   // ex.: "contato@aplicadigital.app.br"
   instagram: "",         // ex.: "aplicadigital" (sem @)
   cidade: "Campinas - SP",
   github: "https://github.com/ademar1969"
