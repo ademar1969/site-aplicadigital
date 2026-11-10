@@ -25,7 +25,6 @@ const MARCA = '<svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" heig
 
 const PRODUTOS = [
   ["vendasnfe", "VendasNFe"],
-  ["newsystem", "NewSystem"],
   ["suporte-remoto", "Suporte Remoto"],
   ["aviso-de-agua", "Aviso de Água"],
   ["lembre-remedio", "LembreRemédio"],
