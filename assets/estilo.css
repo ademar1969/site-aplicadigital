@@ -107,6 +107,7 @@ p { margin: 0 0 1em; }
 
 /* ---------- cartoes de produto */
 .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grade.duas { grid-template-columns: repeat(2, 1fr); }
 .cartao {
   background: #fff; border: 1px solid var(--borda); border-radius: var(--raio); padding: 28px; box-shadow: var(--sombra);
   display: flex; flex-direction: column; transition: transform .15s, box-shadow .15s;
@@ -228,7 +229,7 @@ p { margin: 0 0 1em; }
   .menu.aberto { display: flex; }
   .menu .botao { margin: 8px 0 0; }
   .abrir-menu { display: block; }
-  .grade, .vantagens, .modulos, .contatos { grid-template-columns: 1fr; }
+  .grade, .grade.duas, .vantagens, .modulos, .contatos { grid-template-columns: 1fr; }
   .capa { padding: 64px 0 80px; }
   .download { padding: 28px; }
   .rodape .container > .colunas { grid-template-columns: 1fr; }
