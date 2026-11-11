@@ -13,7 +13,8 @@ const CONTATO = {
    Coloque a imagem em assets/clientes/ e acrescente uma linha. "site" e opcional (deixe ""). ==== */
 const CLIENTES = [
   { nome: "Chopp Kremer Express", logo: "assets/clientes/chopp-kremer-express.png", site: "" },
-  { nome: "CW Parafusos &amp; Ferramentas", logo: "assets/clientes/cw-parafusos-ferramentas.jpg", site: "" }
+  { nome: "CW Parafusos &amp; Ferramentas", logo: "assets/clientes/cw-parafusos-ferramentas.jpg", site: "" },
+  { nome: "Center Ball Society Valinhos", logo: "assets/clientes/center-ball-society.jpg", site: "" }
 ];
 
 const BASE = document.documentElement.dataset.base || "";   // "" na raiz, "../" nas paginas de produto
