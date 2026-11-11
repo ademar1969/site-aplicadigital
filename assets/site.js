@@ -12,7 +12,8 @@ const CONTATO = {
 /* ==== CLIENTES: logos do carrossel da pagina inicial.
    Coloque a imagem em assets/clientes/ e acrescente uma linha. "site" e opcional (deixe ""). ==== */
 const CLIENTES = [
-  { nome: "Chopp Kremer Express", logo: "assets/clientes/chopp-kremer-express.png", site: "" }
+  { nome: "Chopp Kremer Express", logo: "assets/clientes/chopp-kremer-express.png", site: "" },
+  { nome: "CW Parafusos &amp; Ferramentas", logo: "assets/clientes/cw-parafusos-ferramentas.jpg", site: "" }
 ];
 
 const BASE = document.documentElement.dataset.base || "";   // "" na raiz, "../" nas paginas de produto
