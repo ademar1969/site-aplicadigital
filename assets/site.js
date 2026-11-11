@@ -15,7 +15,8 @@ const CLIENTES = [
   { nome: "Chopp Kremer Express", logo: "assets/clientes/chopp-kremer-express.png", site: "" },
   { nome: "CW Parafusos &amp; Ferramentas", logo: "assets/clientes/cw-parafusos-ferramentas.jpg", site: "" },
   { nome: "Center Ball Society Valinhos", logo: "assets/clientes/center-ball-society.jpg", site: "" },
-  { nome: "Office Chaveiro", logo: "assets/clientes/office-chaveiro.png", site: "" }
+  { nome: "Office Chaveiro", logo: "assets/clientes/office-chaveiro.png", site: "" },
+  { nome: "Taremaki Sushi", logo: "assets/clientes/taremaki-sushi.jpg", site: "" }
 ];
 
 const BASE = document.documentElement.dataset.base || "";   // "" na raiz, "../" nas paginas de produto
@@ -129,10 +130,13 @@ function montarClientes() {
     return;
   }
   // com 5 ou mais: passa em loop; a lista vai duas vezes para o loop nao ter emenda
-  const html = CLIENTES.map(item).join("");
+  // (repete a lista ate ter uns 10 cartoes, para nao sobrar espaco vazio em telas largas)
+  let grupo = CLIENTES;
+  while (grupo.length < 10) grupo = grupo.concat(CLIENTES);
+  const html = grupo.map(item).join("");
   trilho.innerHTML = `<ul>${html}</ul><ul aria-hidden="true">${html}</ul>`;
   trilho.querySelectorAll('ul[aria-hidden] a').forEach(a => a.tabIndex = -1);
-  trilho.style.setProperty("--duracao", CLIENTES.length * 4 + "s");
+  trilho.style.setProperty("--duracao", grupo.length * 4 + "s");
 }
 
 /* Botoes de download sempre na versao mais nova publicada no GitHub.
