@@ -105,6 +105,36 @@ p { margin: 0 0 1em; }
 }
 .selo-flutuante i { width: 34px; height: 34px; border-radius: 50%; background: #e4f6ec; display: grid; place-items: center; font-style: normal; color: var(--verde); font-weight: 800; }
 
+/* ---------- carrossel de clientes */
+.clientes { padding: 40px 0 44px; border-bottom: 1px solid var(--borda); overflow: hidden; }
+.clientes-titulo {
+  text-align: center; margin: 0 0 24px; font-size: .85rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--texto-2);
+}
+.clientes-trilho {
+  display: flex; width: max-content;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.clientes .clientes-trilho { width: 100%; }
+.clientes-trilho ul {
+  list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 56px; padding-right: 56px;
+  flex: none; animation: rolar-clientes var(--duracao, 30s) linear infinite;
+}
+.clientes-trilho:hover ul { animation-play-state: paused; }
+.clientes-trilho li { flex: none; }
+.clientes-trilho img {
+  height: 84px; width: auto; max-width: 180px; object-fit: contain;
+  filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s, transform .2s;
+}
+.clientes-trilho img:hover { filter: none; opacity: 1; transform: scale(1.06); }
+@keyframes rolar-clientes { to { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) {
+  .clientes-trilho ul { animation: none; }
+  .clientes-trilho ul[aria-hidden] { display: none; }
+  .clientes-trilho { -webkit-mask-image: none; mask-image: none; justify-content: center; flex-wrap: wrap; }
+}
+
 /* ---------- cartoes de produto */
 .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .grade.duas { grid-template-columns: repeat(2, 1fr); }
@@ -234,4 +264,6 @@ p { margin: 0 0 1em; }
   .download { padding: 28px; }
   .rodape .container > .colunas { grid-template-columns: 1fr; }
   .selo-flutuante { right: 0; }
+  .clientes-trilho ul { gap: 36px; padding-right: 36px; }
+  .clientes-trilho img { height: 64px; max-width: 140px; }
 }

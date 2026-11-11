@@ -9,6 +9,12 @@ const CONTATO = {
   github: "https://github.com/ademar1969"
 };
 
+/* ==== CLIENTES: logos do carrossel da pagina inicial.
+   Coloque a imagem em assets/clientes/ e acrescente uma linha. "site" e opcional (deixe ""). ==== */
+const CLIENTES = [
+  { nome: "Chopp Kremer Express", logo: "assets/clientes/chopp-kremer-express.png", site: "" }
+];
+
 const BASE = document.documentElement.dataset.base || "";   // "" na raiz, "../" nas paginas de produto
 
 const ICONE = {
@@ -103,6 +109,25 @@ function montarContatos() {
   }
 }
 
+/* Carrossel de logos que passa sozinho em loop (para ao passar o mouse). */
+function montarClientes() {
+  const secao = document.getElementById("clientes");
+  const trilho = secao && secao.querySelector(".clientes-trilho");
+  if (!trilho) return;
+  if (!CLIENTES.length) { secao.hidden = true; return; }
+  const item = c => {
+    const img = `<img src="${BASE}${c.logo}" alt="${c.nome}" title="${c.nome}" loading="lazy">`;
+    return `<li>${c.site ? `<a href="${c.site}" target="_blank" rel="noopener">${img}</a>` : img}</li>`;
+  };
+  // repete a lista ate encher a faixa; depois duplica para o loop nao ter emenda
+  let grupo = [];
+  while (grupo.length < 8) grupo = grupo.concat(CLIENTES);
+  const html = grupo.map(item).join("");
+  trilho.innerHTML = `<ul>${html}</ul><ul aria-hidden="true">${html}</ul>`;
+  trilho.querySelectorAll('ul[aria-hidden] a').forEach(a => a.tabIndex = -1);
+  trilho.style.setProperty("--duracao", grupo.length * 3.5 + "s");
+}
+
 /* Botoes de download sempre na versao mais nova publicada no GitHub.
    <a data-release="dono/repositorio" data-arquivo="Setup-.*\.exe" href="(link de reserva)"> */
 async function atualizarDownloads() {
@@ -127,4 +152,5 @@ async function atualizarDownloads() {
 montarTopo();
 montarRodape();
 montarContatos();
+montarClientes();
 atualizarDownloads();
