@@ -14,7 +14,8 @@ const CONTATO = {
 const CLIENTES = [
   { nome: "Chopp Kremer Express", logo: "assets/clientes/chopp-kremer-express.png", site: "" },
   { nome: "CW Parafusos &amp; Ferramentas", logo: "assets/clientes/cw-parafusos-ferramentas.jpg", site: "" },
-  { nome: "Center Ball Society Valinhos", logo: "assets/clientes/center-ball-society.jpg", site: "" }
+  { nome: "Center Ball Society Valinhos", logo: "assets/clientes/center-ball-society.jpg", site: "" },
+  { nome: "Office Chaveiro", logo: "assets/clientes/office-chaveiro.png", site: "" }
 ];
 
 const BASE = document.documentElement.dataset.base || "";   // "" na raiz, "../" nas paginas de produto
