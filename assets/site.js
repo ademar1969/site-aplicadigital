@@ -25,9 +25,7 @@ const ICONE = {
   instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>'
 };
 
-const MARCA = '<svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#0a6ed1"/>'
-  + '<path d="M11 29 19.2 10h1.6L29 29" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>'
-  + '<path d="M14.8 22.5h10.4" stroke="#7fc0ff" stroke-width="3.4" stroke-linecap="round"/></svg>';
+const MARCA = `<img class="marca-icone" src="${BASE}assets/logo-icone.png" alt="" width="42" height="42">`;
 
 const PRODUTOS = [
   ["vendasnfe", "VendasNFe"],
