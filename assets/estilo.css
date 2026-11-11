@@ -56,6 +56,8 @@ p { margin: 0 0 1em; }
 .menu a { text-decoration: none; color: var(--texto); font-weight: 600; font-size: .95rem; padding: 8px 12px; border-radius: 8px; }
 .menu a:hover, .menu a.ativo { color: var(--azul); background: #eef5fd; }
 .menu .botao { margin-left: 8px; }
+.menu a.botao, .menu a.botao:hover { color: #fff; }
+.menu a.botao:hover { background: var(--azul-escuro); }
 .abrir-menu { display: none; background: none; border: 1px solid var(--borda); border-radius: 8px; padding: 8px 10px; cursor: pointer; }
 .abrir-menu svg { width: 22px; height: 22px; }
 
@@ -106,33 +108,41 @@ p { margin: 0 0 1em; }
 .selo-flutuante i { width: 34px; height: 34px; border-radius: 50%; background: #e4f6ec; display: grid; place-items: center; font-style: normal; color: var(--verde); font-weight: 800; }
 
 /* ---------- carrossel de clientes */
-.clientes { padding: 40px 0 44px; border-bottom: 1px solid var(--borda); overflow: hidden; }
+.clientes { padding: 48px 0 56px; background: var(--fundo-2); border-bottom: 1px solid var(--borda); overflow: hidden; }
 .clientes-titulo {
-  text-align: center; margin: 0 0 24px; font-size: .85rem; font-weight: 700; letter-spacing: .08em;
+  text-align: center; margin: 0 0 28px; font-size: .85rem; font-weight: 700; letter-spacing: .08em;
   text-transform: uppercase; color: var(--texto-2);
 }
 .clientes-trilho {
-  display: flex; width: max-content;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  display: flex; width: 100%; padding: 8px 0 12px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
-.clientes .clientes-trilho { width: 100%; }
 .clientes-trilho ul {
-  list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 56px; padding-right: 56px;
+  list-style: none; margin: 0; padding: 0 24px 0 0; display: flex; align-items: stretch; gap: 24px;
   flex: none; animation: rolar-clientes var(--duracao, 30s) linear infinite;
 }
 .clientes-trilho:hover ul { animation-play-state: paused; }
-.clientes-trilho li { flex: none; }
-.clientes-trilho img {
-  height: 84px; width: auto; max-width: 180px; object-fit: contain;
-  filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s, transform .2s;
+.clientes-trilho li { flex: none; display: flex; }
+.cliente {
+  width: 210px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  padding: 20px 16px; background: #fff; border: 1px solid var(--borda); border-radius: var(--raio);
+  box-shadow: var(--sombra); text-decoration: none; transition: transform .2s, box-shadow .2s, border-color .2s;
 }
-.clientes-trilho img:hover { filter: none; opacity: 1; transform: scale(1.06); }
+a.cliente:hover, .cliente:hover {
+  transform: translateY(-3px); border-color: #c5d6ea;
+  box-shadow: 0 2px 4px rgba(15, 31, 51, .06), 0 16px 36px rgba(15, 31, 51, .12);
+}
+.cliente img { height: 88px; width: auto; max-width: 160px; object-fit: contain; }
+.cliente span { font-size: .92rem; font-weight: 700; color: var(--marinho); text-align: center; line-height: 1.3; }
+/* poucos clientes: fixos e centralizados */
+.clientes-trilho.parado { -webkit-mask-image: none; mask-image: none; justify-content: center; }
+.clientes-trilho.parado ul { animation: none; padding: 0 16px; flex-wrap: wrap; justify-content: center; flex: 1; }
 @keyframes rolar-clientes { to { transform: translateX(-100%); } }
 @media (prefers-reduced-motion: reduce) {
-  .clientes-trilho ul { animation: none; }
+  .clientes-trilho ul { animation: none; flex-wrap: wrap; justify-content: center; flex: 1; }
   .clientes-trilho ul[aria-hidden] { display: none; }
-  .clientes-trilho { -webkit-mask-image: none; mask-image: none; justify-content: center; flex-wrap: wrap; }
+  .clientes-trilho { -webkit-mask-image: none; mask-image: none; }
 }
 
 /* ---------- cartoes de produto */
@@ -264,6 +274,7 @@ p { margin: 0 0 1em; }
   .download { padding: 28px; }
   .rodape .container > .colunas { grid-template-columns: 1fr; }
   .selo-flutuante { right: 0; }
-  .clientes-trilho ul { gap: 36px; padding-right: 36px; }
-  .clientes-trilho img { height: 64px; max-width: 140px; }
+  .clientes-trilho ul { gap: 16px; padding-right: 16px; }
+  .cliente { width: 160px; padding: 16px 12px; }
+  .cliente img { height: 68px; max-width: 128px; }
 }

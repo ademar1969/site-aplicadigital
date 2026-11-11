@@ -116,16 +116,22 @@ function montarClientes() {
   if (!trilho) return;
   if (!CLIENTES.length) { secao.hidden = true; return; }
   const item = c => {
-    const img = `<img src="${BASE}${c.logo}" alt="${c.nome}" title="${c.nome}" loading="lazy">`;
-    return `<li>${c.site ? `<a href="${c.site}" target="_blank" rel="noopener">${img}</a>` : img}</li>`;
+    const conteudo = `<img src="${BASE}${c.logo}" alt="" loading="lazy"><span>${c.nome}</span>`;
+    return `<li>${c.site
+      ? `<a class="cliente" href="${c.site}" target="_blank" rel="noopener">${conteudo}</a>`
+      : `<div class="cliente">${conteudo}</div>`}</li>`;
   };
-  // repete a lista ate encher a faixa; depois duplica para o loop nao ter emenda
-  let grupo = [];
-  while (grupo.length < 8) grupo = grupo.concat(CLIENTES);
-  const html = grupo.map(item).join("");
+  // com poucos clientes os logos ficam parados e centralizados (repetir o mesmo logo fica feio)
+  if (CLIENTES.length < 5) {
+    trilho.classList.add("parado");
+    trilho.innerHTML = `<ul>${CLIENTES.map(item).join("")}</ul>`;
+    return;
+  }
+  // com 5 ou mais: passa em loop; a lista vai duas vezes para o loop nao ter emenda
+  const html = CLIENTES.map(item).join("");
   trilho.innerHTML = `<ul>${html}</ul><ul aria-hidden="true">${html}</ul>`;
   trilho.querySelectorAll('ul[aria-hidden] a').forEach(a => a.tabIndex = -1);
-  trilho.style.setProperty("--duracao", grupo.length * 3.5 + "s");
+  trilho.style.setProperty("--duracao", CLIENTES.length * 4 + "s");
 }
 
 /* Botoes de download sempre na versao mais nova publicada no GitHub.
