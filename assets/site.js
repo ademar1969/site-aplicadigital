@@ -16,7 +16,8 @@ const CLIENTES = [
   { nome: "CW Parafusos &amp; Ferramentas", logo: "assets/clientes/cw-parafusos-ferramentas.jpg", site: "" },
   { nome: "Center Ball Society Valinhos", logo: "assets/clientes/center-ball-society.jpg", site: "" },
   { nome: "Office Chaveiro", logo: "assets/clientes/office-chaveiro.png", site: "" },
-  { nome: "Taremaki Sushi", logo: "assets/clientes/taremaki-sushi.jpg", site: "" }
+  { nome: "Taremaki Sushi", logo: "assets/clientes/taremaki-sushi.jpg", site: "" },
+  { nome: "Kremer Fábrica", logo: "assets/clientes/kremer-fabrica.png", site: "" }
 ];
 
 const BASE = document.documentElement.dataset.base || "";   // "" na raiz, "../" nas paginas de produto
