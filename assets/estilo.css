@@ -177,6 +177,14 @@ a.cliente:hover, .cliente:hover {
 .vantagem .icone svg { width: 24px; height: 24px; }
 .vantagem p { color: var(--texto-2); font-size: .97rem; }
 
+/* ---------- galeria de telas de aplicativos (celular) */
+.galeria-app { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: start; }
+.galeria-app .tela { margin: 0; background: #0f1f33; border-radius: 30px; padding: 10px; box-shadow: 0 16px 36px rgba(15, 31, 51, .22); }
+.galeria-app .tela img { width: 100%; height: auto; border-radius: 22px; background: #fff; }
+.galeria-app figcaption { color: #cfe3fb; font-size: .9rem; text-align: center; padding: 10px 6px 4px; line-height: 1.35; }
+@media (max-width: 960px) { .galeria-app { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .galeria-app { gap: 14px; } .galeria-app .tela { border-radius: 22px; padding: 7px; } .galeria-app .tela img { border-radius: 16px; } }
+
 /* ---------- pagina de produto */
 .capa-produto { background: linear-gradient(160deg, var(--marinho) 0%, var(--marinho-2) 100%); color: #fff; padding: 72px 0; }
 .capa-produto h1 { color: #fff; }

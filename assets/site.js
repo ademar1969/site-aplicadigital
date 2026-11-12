@@ -55,6 +55,7 @@ function montarTopo() {
       <nav class="menu" aria-label="Principal">
         ${item("index.html", "Início", "inicio")}
         ${item("index.html#produtos", "Produtos", "produtos")}
+        ${item("servicos/aplicativos-android.html", "Apps Android", "apps")}
         ${item("index.html#downloads", "Downloads", "downloads")}
         ${item("index.html#duvidas", "Dúvidas", "duvidas")}
         <a class="botao pequeno" href="${BASE}index.html#contato">Fale conosco</a>
@@ -80,7 +81,8 @@ function montarRodape() {
   r.innerHTML = `<div class="container"><div class="colunas">
       <div><a class="marca" href="${BASE}index.html">${MARCA}<span>Aplica<b>Digital</b></span></a>
         <p>Sistemas e aplicativos que resolvem o dia a dia: vendas e nota fiscal, suporte remoto e apps para a saúde e a rotina.</p></div>
-      <div><h3>Produtos</h3><ul>${PRODUTOS.map(([p, n]) => `<li><a href="${BASE}produtos/${p}.html">${n}</a></li>`).join("")}</ul></div>
+      <div><h3>Produtos</h3><ul>${PRODUTOS.map(([p, n]) => `<li><a href="${BASE}produtos/${p}.html">${n}</a></li>`).join("")}
+        <li><a href="${BASE}servicos/aplicativos-android.html">Desenvolvimento de Apps Android</a></li></ul></div>
       <div><h3>Contato</h3><ul>${contatos.join("")}</ul></div>
     </div>
     <div class="copyright"><span>© ${new Date().getFullYear()} Aplica Digital. Todos os direitos reservados.</span>
